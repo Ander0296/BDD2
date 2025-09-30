@@ -1,0 +1,252 @@
+-- MySQL dump 10.13  Distrib 8.0.43, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: jardineria
+-- ------------------------------------------------------
+-- Server version	9.4.0
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `cliente`
+--
+
+DROP TABLE IF EXISTS `cliente`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `cliente` (
+  `id_cliente` int NOT NULL,
+  `nombre_cliente` varchar(100) DEFAULT NULL,
+  `nombre_contacto` varchar(50) DEFAULT NULL,
+  `apellido_contacto` varchar(50) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `fax` varchar(20) DEFAULT NULL,
+  `linea_direccion1` varchar(50) DEFAULT NULL,
+  `linea_direccion2` varchar(50) DEFAULT NULL,
+  `ciudad` varchar(50) DEFAULT NULL,
+  `region` varchar(50) DEFAULT NULL,
+  `pais` varchar(50) DEFAULT NULL,
+  `codigo_postal` varchar(15) DEFAULT NULL,
+  `id_empleado_rep_ventas` int DEFAULT NULL,
+  `limite_credito` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`id_cliente`),
+  KEY `id_empleado_rep_ventas` (`id_empleado_rep_ventas`),
+  CONSTRAINT `cliente_ibfk_1` FOREIGN KEY (`id_empleado_rep_ventas`) REFERENCES `empleado` (`id_empleado`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cliente`
+--
+
+LOCK TABLES `cliente` WRITE;
+/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (101,'Jardinería Verde','Ana','Martínez','+34 912223344',NULL,'Av. América 45',NULL,'Madrid',NULL,'España','28002',7,50000.00),(102,'Flores del Sol','Juan','López','+34 931234567',NULL,'Calle Aragón 22',NULL,'Barcelona',NULL,'España','08015',8,45000.00),(103,'Plantas y Más','Lucía','Pérez','+34 963339876',NULL,'Gran Vía 10',NULL,'Valencia',NULL,'España','46010',9,60000.00),(104,'Jardín Urbano','Marcos','Sánchez','+34 951118765',NULL,'Av. Constitución 30',NULL,'Sevilla',NULL,'España','41005',10,40000.00),(105,'Green World','Clara','Gómez','+34 944449999',NULL,'Calle Navarra 50',NULL,'Bilbao',NULL,'España','48009',11,55000.00),(106,'EcoGarden','David','Fernández','+34 976543210',NULL,'Av. Goya 77',NULL,'Zaragoza',NULL,'España','50005',12,70000.00),(107,'Paisajismo Total','Laura','Ruiz','+351213334567',NULL,'Rua Augusta 12',NULL,'Lisboa',NULL,'Portugal','1000-048',13,65000.00),(108,'Natureza Viva','Pedro','Castro','+351225558888',NULL,'Av. Aliados 40',NULL,'Oporto',NULL,'Portugal','4000-013',14,48000.00),(109,'París Verde','Élodie','Dubois','+33155557777',NULL,'Rue Rivoli 60',NULL,'París',NULL,'Francia','75004',15,52000.00),(110,'Jardinage Lyon','Jean','Martin','+33466669999',NULL,'Cours Lafayette 33',NULL,'Lyon',NULL,'Francia','69003',16,51000.00),(111,'Plantes Marseille','Claire','Bernard','+33488884444',NULL,'Rue Paradis 22',NULL,'Marsella',NULL,'Francia','13006',17,62000.00),(112,'Roma Garden','Alessandro','Rossi','+390655558888',NULL,'Via Veneto 80',NULL,'Roma',NULL,'Italia','00187',18,58000.00),(113,'Milano Verde','Giulia','Bianchi','+390212345678',NULL,'Corso Italia 55',NULL,'Milán',NULL,'Italia','20122',19,54000.00),(114,'Napoli Natura','Francesco','Esposito','+390812223333',NULL,'Via Partenope 15',NULL,'Nápoles',NULL,'Italia','80121',20,49000.00),(115,'Torino Verde','Sara','Conti','+390114447777',NULL,'Via Garibaldi 10',NULL,'Turín',NULL,'Italia','10122',21,62000.00),(116,'Brussels Garden','Sophie','Dupont','+3223336666',NULL,'Rue Neuve 20',NULL,'Bruselas',NULL,'Bélgica','1000',22,50000.00),(117,'Amsterdam Plants','Tom','Jansen','+31207779999',NULL,'Keizersgracht 200',NULL,'Ámsterdam',NULL,'Países Bajos','1016',23,53000.00),(118,'Rotterdam Green','Eva','De Vries','+31108885555',NULL,'Witte de Withstraat 30',NULL,'Róterdam',NULL,'Países Bajos','3012',24,56000.00),(119,'Berlin Garten','Hans','Schmidt','+493044441111',NULL,'Friedrichstraße 100',NULL,'Berlín',NULL,'Alemania','10117',25,59000.00),(120,'Munich Pflanzen','Katrin','Müller','+49893335555',NULL,'Leopoldstraße 40',NULL,'Múnich',NULL,'Alemania','80802',26,61000.00),(121,'Frankfurt Garden','Lukas','Weber','+496988886666',NULL,'Zeil 22',NULL,'Fráncfort',NULL,'Alemania','60313',27,47000.00),(122,'Hamburg Grün','Anna','Fischer','+494055552222',NULL,'Reeperbahn 12',NULL,'Hamburgo',NULL,'Alemania','20359',28,53000.00),(123,'Vienna Green','Stefan','Huber','+43199993333',NULL,'Graben 10',NULL,'Viena',NULL,'Austria','1010',29,60000.00),(124,'Zurich Pflanzen','Martina','Keller','+41442227777',NULL,'Bahnhofstrasse 12',NULL,'Zúrich',NULL,'Suiza','8001',30,65000.00),(125,'Geneva Nature','Patrick','Dubois','+412255551111',NULL,'Rue du Rhône 40',NULL,'Ginebra',NULL,'Suiza','1204',7,50000.00),(126,'London Garden','James','Brown','+442011119999',NULL,'Regent Street 55',NULL,'Londres',NULL,'Reino Unido','W1B',8,55000.00),(127,'Manchester Plants','Emily','Smith','+441613334444',NULL,'Oxford Road 20',NULL,'Mánchester',NULL,'Reino Unido','M13',9,60000.00),(128,'Dublin Green','Liam','O’Brien','+353177776666',NULL,'Grafton Street 18',NULL,'Dublín',NULL,'Irlanda','D02',10,58000.00),(129,'Edinburgh Nature','Sophie','Wilson','+441314448888',NULL,'Princes Street 22',NULL,'Edimburgo',NULL,'Reino Unido','EH2',11,49000.00),(130,'Cork Garden','Sean','Murphy','+353212225555',NULL,'Oliver Plunkett St 25',NULL,'Cork',NULL,'Irlanda','T12',12,52000.00);
+/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `detalle_pedido`
+--
+
+DROP TABLE IF EXISTS `detalle_pedido`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `detalle_pedido` (
+  `id_pedido` int NOT NULL,
+  `id_producto` int NOT NULL,
+  `cantidad` int DEFAULT NULL,
+  `precio_unidad` decimal(15,2) DEFAULT NULL,
+  `numero_linea` int DEFAULT NULL,
+  PRIMARY KEY (`id_pedido`,`id_producto`),
+  KEY `id_producto` (`id_producto`),
+  CONSTRAINT `detalle_pedido_ibfk_1` FOREIGN KEY (`id_pedido`) REFERENCES `pedido` (`id_pedido`),
+  CONSTRAINT `detalle_pedido_ibfk_2` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `detalle_pedido`
+--
+
+LOCK TABLES `detalle_pedido` WRITE;
+/*!40000 ALTER TABLE `detalle_pedido` DISABLE KEYS */;
+INSERT INTO `detalle_pedido` VALUES (2001,1001,10,2.50,1),(2002,1002,15,3.00,1),(2003,1003,5,15.00,1),(2004,1004,20,1.50,1),(2005,1005,12,2.80,1),(2006,1006,8,4.00,1),(2007,1007,7,6.50,1),(2008,1008,3,25.00,1),(2009,1009,6,3.50,1),(2010,1010,4,12.00,1),(2011,1011,2,45.00,1),(2012,1012,3,30.00,1),(2013,1013,5,7.00,1),(2014,1014,6,5.00,1),(2015,1015,8,4.50,1),(2016,1016,3,18.00,1),(2017,1017,4,6.00,1),(2018,1018,5,8.50,1),(2019,1019,3,14.00,1),(2020,1020,4,12.50,1),(2021,1021,6,9.00,1),(2022,1022,2,20.00,1),(2023,1023,1,22.00,1),(2024,1024,7,3.20,1),(2025,1025,2,16.00,1),(2026,1026,3,10.00,1),(2027,1027,4,12.00,1),(2028,1028,5,5.50,1),(2029,1029,3,25.00,1),(2030,1030,2,50.00,1);
+/*!40000 ALTER TABLE `detalle_pedido` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `empleado`
+--
+
+DROP TABLE IF EXISTS `empleado`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `empleado` (
+  `id_empleado` int NOT NULL,
+  `nombre` varchar(50) DEFAULT NULL,
+  `apellido1` varchar(50) DEFAULT NULL,
+  `apellido2` varchar(50) DEFAULT NULL,
+  `extension` varchar(10) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `id_oficina` varchar(10) DEFAULT NULL,
+  `id_jefe` int DEFAULT NULL,
+  `puesto` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_empleado`),
+  KEY `id_oficina` (`id_oficina`),
+  KEY `id_jefe` (`id_jefe`),
+  CONSTRAINT `empleado_ibfk_1` FOREIGN KEY (`id_oficina`) REFERENCES `oficina` (`id_oficina`),
+  CONSTRAINT `empleado_ibfk_2` FOREIGN KEY (`id_jefe`) REFERENCES `empleado` (`id_empleado`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `empleado`
+--
+
+LOCK TABLES `empleado` WRITE;
+/*!40000 ALTER TABLE `empleado` DISABLE KEYS */;
+INSERT INTO `empleado` VALUES (1,'Carlos','García','López','x1001','carlos.garcia@empresa.com','OFI-001',NULL,'Director General'),(2,'Laura','Martínez','Ruiz','x1002','laura.martinez@empresa.com','OFI-001',1,'Subdirectora'),(3,'Javier','Fernández','Torres','x1003','javier.fernandez@empresa.com','OFI-002',2,'Gerente Ventas'),(4,'Marta','Sánchez','Díaz','x1004','marta.sanchez@empresa.com','OFI-003',2,'Gerente Ventas'),(5,'Andrés','Hernández','Gómez','x1005','andres.hernandez@empresa.com','OFI-004',2,'Gerente Ventas'),(6,'Elena','Pérez','Jiménez','x1006','elena.perez@empresa.com','OFI-005',2,'Gerente Ventas'),(7,'Luis','Romero','Castro','x1007','luis.romero@empresa.com','OFI-006',3,'Representante Ventas'),(8,'Paula','Gómez','Vargas','x1008','paula.gomez@empresa.com','OFI-007',3,'Representante Ventas'),(9,'Diego','Navarro','Ortega','x1009','diego.navarro@empresa.com','OFI-008',3,'Representante Ventas'),(10,'Carmen','Morales','Serrano','x1010','carmen.morales@empresa.com','OFI-009',4,'Representante Ventas'),(11,'Sergio','Domínguez','Cano','x1011','sergio.dominguez@empresa.com','OFI-010',4,'Representante Ventas'),(12,'Natalia','Ramos','Delgado','x1012','natalia.ramos@empresa.com','OFI-011',4,'Representante Ventas'),(13,'Hugo','Ortiz','Fuentes','x1013','hugo.ortiz@empresa.com','OFI-012',5,'Representante Ventas'),(14,'Isabel','Cruz','Aguilar','x1014','isabel.cruz@empresa.com','OFI-013',5,'Representante Ventas'),(15,'Pedro','Molina','Herrera','x1015','pedro.molina@empresa.com','OFI-014',5,'Representante Ventas'),(16,'Lucía','Castillo','Vega','x1016','lucia.castillo@empresa.com','OFI-015',6,'Representante Ventas'),(17,'Manuel','Marín','Suárez','x1017','manuel.marin@empresa.com','OFI-016',6,'Representante Ventas'),(18,'Rosa','Iglesias','Peña','x1018','rosa.iglesias@empresa.com','OFI-017',6,'Representante Ventas'),(19,'Álvaro','Cabrera','Flores','x1019','alvaro.cabrera@empresa.com','OFI-018',6,'Representante Ventas'),(20,'Patricia','Santos','Méndez','x1020','patricia.santos@empresa.com','OFI-019',7,'Representante Ventas'),(21,'Mario','Reyes','Núñez','x1021','mario.reyes@empresa.com','OFI-020',7,'Representante Ventas'),(22,'Sara','Herrera','Campos','x1022','sara.herrera@empresa.com','OFI-021',7,'Representante Ventas'),(23,'Raúl','Giménez','León','x1023','raul.gimenez@empresa.com','OFI-022',7,'Representante Ventas'),(24,'Julia','Cortés','Medina','x1024','julia.cortes@empresa.com','OFI-023',8,'Representante Ventas'),(25,'Adrián','Lorenzo','Silva','x1025','adrian.lorenzo@empresa.com','OFI-024',8,'Representante Ventas'),(26,'Eva','Carmona','Rivas','x1026','eva.carmona@empresa.com','OFI-025',8,'Representante Ventas'),(27,'Tomás','Soto','Arias','x1027','tomas.soto@empresa.com','OFI-026',8,'Representante Ventas'),(28,'Marina','Durán','Rey','x1028','marina.duran@empresa.com','OFI-027',9,'Representante Ventas'),(29,'Ignacio','Benítez','Ordoñez','x1029','ignacio.benitez@empresa.com','OFI-028',9,'Representante Ventas'),(30,'Beatriz','Vidal','Bravo','x1030','beatriz.vidal@empresa.com','OFI-029',9,'Representante Ventas');
+/*!40000 ALTER TABLE `empleado` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `oficina`
+--
+
+DROP TABLE IF EXISTS `oficina`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `oficina` (
+  `id_oficina` varchar(10) NOT NULL,
+  `ciudad` varchar(50) DEFAULT NULL,
+  `pais` varchar(50) DEFAULT NULL,
+  `region` varchar(50) DEFAULT NULL,
+  `codigo_postal` varchar(15) DEFAULT NULL,
+  `telefono` varchar(20) DEFAULT NULL,
+  `linea_direccion1` varchar(50) DEFAULT NULL,
+  `linea_direccion2` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id_oficina`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `oficina`
+--
+
+LOCK TABLES `oficina` WRITE;
+/*!40000 ALTER TABLE `oficina` DISABLE KEYS */;
+INSERT INTO `oficina` VALUES ('OFI-001','Madrid','España','Europa','28001','+34 910000001','Calle Alcalá 10',NULL),('OFI-002','Barcelona','España','Europa','08001','+34 930000002','Passeig de Gràcia 20',NULL),('OFI-003','Valencia','España','Europa','46001','+34 960000003','Avenida del Puerto 5',NULL),('OFI-004','Sevilla','España','Europa','41001','+34 950000004','Calle Sierpes 15',NULL),('OFI-005','Bilbao','España','Europa','48001','+34 940000005','Gran Vía 12',NULL),('OFI-006','Zaragoza','España','Europa','50001','+34 970000006','Calle Alfonso I 22',NULL),('OFI-007','Lisboa','Portugal','Europa','1000-001','+351 210000007','Rua Augusta 30',NULL),('OFI-008','Oporto','Portugal','Europa','4000-001','+351 220000008','Avenida dos Aliados 45',NULL),('OFI-009','París','Francia','Europa','75001','+33 140000009','Rue de Rivoli 10',NULL),('OFI-010','Lyon','Francia','Europa','69001','+33 450000010','Rue de la République 5',NULL),('OFI-011','Marsella','Francia','Europa','13001','+33 420000011','Vieux-Port 8',NULL),('OFI-012','Roma','Italia','Europa','00100','+39 060000012','Via del Corso 12',NULL),('OFI-013','Milán','Italia','Europa','20100','+39 020000013','Corso Buenos Aires 20',NULL),('OFI-014','Nápoles','Italia','Europa','80100','+39 081000014','Via Toledo 25',NULL),('OFI-015','Turín','Italia','Europa','10100','+39 011000015','Via Roma 10',NULL),('OFI-016','Bruselas','Bélgica','Europa','1000','+32 020000016','Avenue Louise 50',NULL),('OFI-017','Ámsterdam','Países Bajos','Europa','1011','+31 020000017','Damrak 5',NULL),('OFI-018','Róterdam','Países Bajos','Europa','3011','+31 010000018','Coolsingel 12',NULL),('OFI-019','Berlín','Alemania','Europa','10115','+49 030000019','Unter den Linden 55',NULL),('OFI-020','Múnich','Alemania','Europa','80331','+49 089000020','Marienplatz 3',NULL),('OFI-021','Fráncfort','Alemania','Europa','60311','+49 069000021','Zeil 22',NULL),('OFI-022','Hamburgo','Alemania','Europa','20095','+49 040000022','Reeperbahn 7',NULL),('OFI-023','Viena','Austria','Europa','1010','+43 010000023','Kärntner Straße 12',NULL),('OFI-024','Zúrich','Suiza','Europa','8001','+41 044000024','Bahnhofstrasse 10',NULL),('OFI-025','Ginebra','Suiza','Europa','1201','+41 022000025','Rue du Rhône 20',NULL),('OFI-026','Londres','Reino Unido','Europa','SW1A','+44 020000026','Oxford Street 50',NULL),('OFI-027','Mánchester','Reino Unido','Europa','M1','+44 016100027','Deansgate 10',NULL),('OFI-028','Dublín','Irlanda','Europa','D01','+353 010000028','O’Connell Street 15',NULL),('OFI-029','Edimburgo','Reino Unido','Europa','EH1','+44 013100029','Royal Mile 8',NULL),('OFI-030','Cork','Irlanda','Europa','T12','+353 021000030','Patrick Street 12',NULL);
+/*!40000 ALTER TABLE `oficina` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pago`
+--
+
+DROP TABLE IF EXISTS `pago`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pago` (
+  `id_pago` int NOT NULL AUTO_INCREMENT,
+  `id_cliente` int DEFAULT NULL,
+  `forma_pago` enum('Transferencia','Cheque','Tarjeta') DEFAULT NULL,
+  `id_transaccion` varchar(50) DEFAULT NULL,
+  `fecha_pago` date DEFAULT NULL,
+  `total` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`id_pago`),
+  KEY `id_cliente` (`id_cliente`),
+  CONSTRAINT `pago_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pago`
+--
+
+LOCK TABLES `pago` WRITE;
+/*!40000 ALTER TABLE `pago` DISABLE KEYS */;
+INSERT INTO `pago` VALUES (1,101,'Transferencia','TRX-101','2025-09-05',25.00),(2,102,'Cheque','CHQ-102','2025-09-06',45.00),(3,103,'Tarjeta','CC-103','2025-09-07',75.00),(4,104,'Transferencia','TRX-104','2025-09-08',30.00),(5,105,'Cheque','CHQ-105','2025-09-09',33.60),(6,106,'Tarjeta','CC-106','2025-09-10',32.00),(7,107,'Transferencia','TRX-107','2025-09-11',45.50),(8,108,'Cheque','CHQ-108','2025-09-12',75.00),(9,109,'Tarjeta','CC-109','2025-09-13',21.00),(10,110,'Transferencia','TRX-110','2025-09-14',48.00),(11,111,'Cheque','CHQ-111','2025-09-15',90.00),(12,112,'Tarjeta','CC-112','2025-09-16',90.00),(13,113,'Transferencia','TRX-113','2025-09-17',35.00),(14,114,'Cheque','CHQ-114','2025-09-18',30.00),(15,115,'Tarjeta','CC-115','2025-09-19',36.00),(16,116,'Transferencia','TRX-116','2025-09-20',54.00),(17,117,'Cheque','CHQ-117','2025-09-21',24.00),(18,118,'Tarjeta','CC-118','2025-09-22',42.50),(19,119,'Transferencia','TRX-119','2025-09-23',42.00),(20,120,'Cheque','CHQ-120','2025-09-24',50.00),(21,121,'Tarjeta','CC-121','2025-09-25',54.00),(22,122,'Transferencia','TRX-122','2025-09-26',40.00),(23,123,'Cheque','CHQ-123','2025-09-27',22.00),(24,124,'Tarjeta','CC-124','2025-09-28',22.40),(25,125,'Transferencia','TRX-125','2025-09-29',32.00),(26,126,'Cheque','CHQ-126','2025-09-30',30.00),(27,127,'Tarjeta','CC-127','2025-10-01',48.00),(28,128,'Transferencia','TRX-128','2025-10-02',27.50),(29,129,'Cheque','CHQ-129','2025-10-03',75.00),(30,130,'Tarjeta','CC-130','2025-10-04',100.00);
+/*!40000 ALTER TABLE `pago` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pedido`
+--
+
+DROP TABLE IF EXISTS `pedido`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pedido` (
+  `id_pedido` int NOT NULL,
+  `id_cliente` int DEFAULT NULL,
+  `fecha_pedido` date DEFAULT NULL,
+  `fecha_esperada` date DEFAULT NULL,
+  `fecha_entrega` date DEFAULT NULL,
+  `estado` enum('Pendiente','Entregado','Rechazado') DEFAULT NULL,
+  `comentarios` text,
+  PRIMARY KEY (`id_pedido`),
+  KEY `id_cliente` (`id_cliente`),
+  CONSTRAINT `pedido_ibfk_1` FOREIGN KEY (`id_cliente`) REFERENCES `cliente` (`id_cliente`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pedido`
+--
+
+LOCK TABLES `pedido` WRITE;
+/*!40000 ALTER TABLE `pedido` DISABLE KEYS */;
+INSERT INTO `pedido` VALUES (2001,101,'2025-09-01','2025-09-05',NULL,'Pendiente','Entrega urgente'),(2002,102,'2025-09-02','2025-09-06','2025-09-05','Entregado','Cliente satisfecho'),(2003,103,'2025-09-03','2025-09-07',NULL,'Pendiente','Revisar stock'),(2004,104,'2025-09-04','2025-09-08','2025-09-07','Entregado','Pago al contado'),(2005,105,'2025-09-05','2025-09-09',NULL,'Pendiente','Solicitó descuento'),(2006,106,'2025-09-06','2025-09-10','2025-09-09','Entregado','Entrega en horario especial'),(2007,107,'2025-09-07','2025-09-11',NULL,'Pendiente','Revisar dirección'),(2008,108,'2025-09-08','2025-09-12','2025-09-11','Entregado','Entrega parcial'),(2009,109,'2025-09-09','2025-09-13',NULL,'Pendiente','Esperando confirmación'),(2010,110,'2025-09-10','2025-09-14','2025-09-13','Entregado','Cliente recurrente'),(2011,111,'2025-09-11','2025-09-15',NULL,'Pendiente','Entrega programada en 2 fases'),(2012,112,'2025-09-12','2025-09-16','2025-09-15','Entregado','Cliente satisfecho'),(2013,113,'2025-09-13','2025-09-17',NULL,'Pendiente','Pedido grande'),(2014,114,'2025-09-14','2025-09-18','2025-09-17','Entregado','Urgente, stock limitado'),(2015,115,'2025-09-15','2025-09-19',NULL,'Pendiente','Pendiente aprobación de crédito'),(2016,116,'2025-09-16','2025-09-20','2025-09-19','Entregado','Entrega puntual'),(2017,117,'2025-09-17','2025-09-21',NULL,'Pendiente','Observaciones especiales'),(2018,118,'2025-09-18','2025-09-22','2025-09-21','Entregado','Factura detallada'),(2019,119,'2025-09-19','2025-09-23',NULL,'Pendiente','Entrega en dos direcciones'),(2020,120,'2025-09-20','2025-09-24','2025-09-23','Entregado','Pedido grande entregado'),(2021,121,'2025-09-21','2025-09-25',NULL,'Pendiente','Confirmación bancaria'),(2022,122,'2025-09-22','2025-09-26','2025-09-25','Entregado','Entrega completa'),(2023,123,'2025-09-23','2025-09-27',NULL,'Pendiente','Embalaje especial'),(2024,124,'2025-09-24','2025-09-28','2025-09-27','Entregado','Cliente satisfecho'),(2025,125,'2025-09-25','2025-09-29',NULL,'Pendiente','Esperando stock'),(2026,126,'2025-09-26','2025-09-30','2025-09-29','Entregado','Entrega parcial'),(2027,127,'2025-09-27','2025-10-01',NULL,'Pendiente','Pedido pendiente confirmación'),(2028,128,'2025-09-28','2025-10-02','2025-10-01','Entregado','Cliente recurrente'),(2029,129,'2025-09-29','2025-10-03',NULL,'Pendiente','Calidad en revisión'),(2030,130,'2025-09-30','2025-10-04','2025-10-03','Entregado','Entrega rápida');
+/*!40000 ALTER TABLE `pedido` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `producto`
+--
+
+DROP TABLE IF EXISTS `producto`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `producto` (
+  `id_producto` int NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `gama` varchar(50) DEFAULT NULL,
+  `dimensiones` varchar(50) DEFAULT NULL,
+  `proveedor` varchar(100) DEFAULT NULL,
+  `descripcion` text,
+  `cantidad_en_stock` int DEFAULT NULL,
+  `precio_venta` decimal(15,2) DEFAULT NULL,
+  `precio_proveedor` decimal(15,2) DEFAULT NULL,
+  PRIMARY KEY (`id_producto`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `producto`
+--
+
+LOCK TABLES `producto` WRITE;
+/*!40000 ALTER TABLE `producto` DISABLE KEYS */;
+INSERT INTO `producto` VALUES (1001,'Rosa Roja','Flores','30cm','Floricultura Madrid','Rosa roja fresca de tallo largo',200,2.50,1.20),(1002,'Tulipán Amarillo','Flores','25cm','Tulipanes BCN','Tulipán amarillo de temporada',150,3.00,1.50),(1003,'Orquídea Blanca','Orquídeas','40cm','Orquídeas Valencia','Orquídea blanca en maceta pequeña',80,15.00,8.00),(1004,'Clavel Rojo','Flores','20cm','Claveles Sevilla','Clavel rojo fresco',300,1.50,0.80),(1005,'Girasol','Flores','50cm','Campos Bilbao','Girasol grande con tallo largo',120,2.80,1.40),(1006,'Cactus Mini','Suculentas','10cm','Green Lisboa','Cactus pequeño en maceta',250,4.00,2.00),(1007,'Suculenta Aloe Vera','Suculentas','15cm','Portugal Verde','Aloe vera en maceta',100,6.50,3.00),(1008,'Bonsái Ficus','Bonsáis','35cm','Bonsáis París','Bonsái de ficus con maceta',60,25.00,12.00),(1009,'Lirio Blanco','Flores','40cm','Flores Lyon','Lirio blanco de tallo largo',90,3.50,1.80),(1010,'Helecho Boston','Plantas Verdes','60cm','Marseille Green','Helecho colgante',75,12.00,6.00),(1011,'Palmera Areca','Plantas Verdes','120cm','Roma Verde','Palmera areca en maceta',40,45.00,25.00),(1012,'Olivo en Maceta','Árboles','80cm','Milano Plantas','Olivo pequeño en maceta',50,30.00,15.00),(1013,'Lavanda','Aromáticas','25cm','Napoli Garden','Planta de lavanda en maceta',130,7.00,3.50),(1014,'Romero','Aromáticas','20cm','Turín Nature','Planta de romero en maceta',140,5.00,2.50),(1015,'Menta','Aromáticas','20cm','Bruselas Verde','Planta de menta fresca',150,4.50,2.20),(1016,'Hortensia Azul','Flores','40cm','Ámsterdam Floral','Hortensia azul en maceta',70,18.00,9.00),(1017,'Peonía Rosa','Flores','35cm','Rotterdam Flowers','Peonía rosa de tallo largo',95,6.00,3.00),(1018,'Geranio Rojo','Flores','25cm','Berlín Plantas','Geranio en maceta',160,8.50,4.20),(1019,'Camelia','Flores','50cm','Múnich Garden','Camelia en maceta',85,14.00,7.00),(1020,'Azalea Blanca','Flores','30cm','Fráncfort Natur','Azalea blanca en maceta',100,12.50,6.50),(1021,'Begonia','Flores','25cm','Hamburgo Flor','Begonia de interior',120,9.00,4.50),(1022,'Jazmín','Aromáticas','40cm','Viena Garden','Planta de jazmín enredadera',65,20.00,10.00),(1023,'Gardenia','Flores','30cm','Zúrich Plantas','Gardenia blanca en maceta',55,22.00,11.00),(1024,'Crisantemo Amarillo','Flores','30cm','Ginebra Floral','Crisantemo amarillo fresco',140,3.20,1.60),(1025,'Clivia Naranja','Flores','35cm','London Flowers','Clivia en maceta',60,16.00,8.00),(1026,'Hiedra','Plantas Verdes','50cm','Manchester Verde','Planta trepadora hiedra',90,10.00,5.00),(1027,'Bambú de la Suerte','Plantas Verdes','40cm','Dublín Zen','Bambú en maceta de vidrio',110,12.00,6.00),(1028,'Aloe Mini','Suculentas','15cm','Edimburgo Green','Mini aloe vera',140,5.50,2.80),(1029,'Sansevieria','Plantas Verdes','70cm','Cork Plantas','Lengua de suegra en maceta',80,25.00,12.50),(1030,'Ficus Lyrata','Plantas Verdes','100cm','Global Plants','Ficus en maceta grande',45,50.00,28.00);
+/*!40000 ALTER TABLE `producto` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2025-09-27  0:06:10
